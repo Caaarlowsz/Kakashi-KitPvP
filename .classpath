@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/Kakashi/Desktop/Server/plugins/BarAPI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Kakashi/Desktop/Server/spigot.jar" sourcepath="C:/Users/IZ44KPvP/Desktop/Coisas Desenvolvimento/BukkitAPI/Spigot-1649.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Kakashi/Desktop/Server/plugins/TitleAPI-1.7.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Kakashi/Desktop/Server/plugins/NametagEdit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Kakashi/Desktop/Server/plugins/PermissionsEx.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
