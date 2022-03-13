@@ -1,9 +1,12 @@
-package Kakashi.KitPvP;
+package com.github.caaarlowsz.kakashimc.kitpvp;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Kakashi.KitPvP.SendMSG;
+import com.github.caaarlowsz.kitpvpapi.KitPvP;
+import com.github.caaarlowsz.kitpvpapi.KitPvPAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -62,7 +65,7 @@ import Kakashi.KitPvP.Kits.Avatar;
 import Kakashi.KitPvP.Kits.Bombeiro;
 import Kakashi.KitPvP.Kits.Bruxa;
 import Kakashi.KitPvP.Kits.C4;
-import Kakashi.KitPvP.Kits.Confusão;
+import Kakashi.KitPvP.Kits.Confusï¿½o;
 import Kakashi.KitPvP.Kits.FisherMan;
 import Kakashi.KitPvP.Kits.Flash;
 import Kakashi.KitPvP.Kits.FlashBack;
@@ -101,9 +104,29 @@ import Kakashi.KitPvP.Warps.SetWarp;
 import Kakashi.KitPvP.Warps.irWarp;
 
 @SuppressWarnings({ "all" })
-public class Main extends JavaPlugin {
+public class KakashiPvP extends JavaPlugin implements KitPvP {
+
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		KitPvPAPI.setInstance(this);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.enable();
+	}
+
+	@Override
+	public void onDisable() {
+		super.onDisable();
+
+		// TODO: Remover quando melhorar a classe principal
+		this.disable();
+	}
+
+	// TODO: Melhorar a classe principal
+
 	public static Plugin plugin;
-	public static Main instance;
+	public static KakashiPvP instance;
 	public static Integer score;
 	public static String semperm;
 	private AutoMensagem AutoMessanger;
@@ -115,7 +138,7 @@ public class Main extends JavaPlugin {
 	public YamlConfiguration arenas;
 
 	static {
-		Main.score = null;
+		KakashiPvP.score = null;
 	}
 
 	public void onLoad() {
@@ -123,15 +146,15 @@ public class Main extends JavaPlugin {
 		for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 			final Player todos = onlinePlayers[i];
 			ArrayList<String> msg = new ArrayList<>();
-			msg.add("               §4§lKitPvP             ");
-			msg.add("§cServidor reiniciado para melhorar sua jogabilidade");
+			msg.add("               ï¿½4ï¿½lKitPvP             ");
+			msg.add("ï¿½cServidor reiniciado para melhorar sua jogabilidade");
 			todos.kickPlayer(String.valueOf(msg));
 		}
 	}
 
-	public void onEnable() {
-		Main.plugin = (Plugin) this;
-		Main.instance = this;
+	public void enable() {
+		KakashiPvP.plugin = (Plugin) this;
+		KakashiPvP.instance = this;
 		final File status = new File(this.getDataFolder(), "status.yml");
 		if (!status.exists()) {
 			this.saveResource("status.yml", false);
@@ -159,8 +182,8 @@ public class Main extends JavaPlugin {
 		this.Guis();
 		this.saveDefaultConfig();
 		API.novaReceita();
-		Bukkit.getConsoleSender().sendMessage("§2§lPlugin Iniciado ");
-		Main.score = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask((Plugin) getInstance(),
+		Bukkit.getConsoleSender().sendMessage("ï¿½2ï¿½lPlugin Iniciado ");
+		KakashiPvP.score = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask((Plugin) getInstance(),
 				(Runnable) new Runnable() {
 					@Override
 					public void run() {
@@ -178,8 +201,8 @@ public class Main extends JavaPlugin {
 				}, 0L, 10L);
 	}
 
-	public void onDisable() {
-		Bukkit.getConsoleSender().sendMessage("§4§lPlugin Desativado");
+	public void disable() {
+		Bukkit.getConsoleSender().sendMessage("ï¿½4ï¿½lPlugin Desativado");
 	}
 
 	public void Eventos() {
@@ -293,11 +316,11 @@ public class Main extends JavaPlugin {
 	}
 
 	public static Plugin getPlugin() {
-		return Main.plugin;
+		return KakashiPvP.plugin;
 	}
 
-	public static Main getInstance() {
-		return Main.instance;
+	public static KakashiPvP getInstance() {
+		return KakashiPvP.instance;
 	}
 
 	public void save() {

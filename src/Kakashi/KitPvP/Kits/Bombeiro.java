@@ -11,7 +11,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffectType;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -32,14 +32,14 @@ public class Bombeiro implements Listener {
 			API.darEfeito(p, PotionEffectType.DAMAGE_RESISTANCE, 100, 3);
 			API.darEfeito(p, PotionEffectType.FIRE_RESISTANCE, 100, 3);
 			p.sendMessage(
-					String.valueOf(API.preffix) + "§bVoc\u00ea apagou o fogo de pessoas perto 5 blocos de voc\u00ea");
+					String.valueOf(API.preffix) + "ï¿½bVoc\u00ea apagou o fogo de pessoas perto 5 blocos de voc\u00ea");
 			p.setFireTicks(0);
 			for (final Entity perto : p.getNearbyEntities(5.0, 5.0, 5.0)) {
 				perto.setFireTicks(0);
-				((CommandSender) perto).sendMessage(String.valueOf(API.preffix) + "§bUm bombeiro apagou seu fogo");
+				((CommandSender) perto).sendMessage(String.valueOf(API.preffix) + "ï¿½bUm bombeiro apagou seu fogo");
 			}
 			Cooldown.add(p, 40);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(API.fimcooldown);

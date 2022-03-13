@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Habilidade;
 
@@ -48,7 +48,7 @@ public class CombatLog implements Listener {
 				CombatLog.emcombate.put(hitter, p);
 				hitter.sendMessage("§7Voc\u00ea est\u00e1 em combate com §c" + p.getDisplayName());
 				p.sendMessage("§7Voc\u00ea est\u00e1 em combate com §c" + hitter.getDisplayName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.instance, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						CombatLog.emcombate.remove(p);

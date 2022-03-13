@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -31,7 +31,7 @@ public class Bruxa implements Listener {
 				return;
 			}
 			Cooldown.add(p, 60);
-			p.sendMessage(String.valueOf(API.preffix) + "§bVoc\u00ea deu alguns efeitos pros players mais proximos");
+			p.sendMessage(String.valueOf(API.preffix) + "ï¿½bVoc\u00ea deu alguns efeitos pros players mais proximos");
 			for (final Entity pertos : p.getNearbyEntities(5.0, 5.0, 5.0)) {
 				final Random efeitos = new Random();
 				final int dar = efeitos.nextInt(9);
@@ -64,13 +64,13 @@ public class Bruxa implements Listener {
 					((LivingEntity) pertos).addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 160, 0),
 							true);
 				}
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						((LivingEntity) pertos).getActivePotionEffects().clear();
 					}
 				}, 100L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.sendMessage(API.fimcooldown);

@@ -12,7 +12,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -33,7 +33,7 @@ public class Shooter implements Listener {
 			velo2.add(new Vector(Math.random() * 0.0 - 0.0, 0.0, 0.0));
 			Cooldown.add(p, 30);
 			((Arrow) p.launchProjectile((Class) Arrow.class)).setVelocity(velo2);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(API.fimcooldown);

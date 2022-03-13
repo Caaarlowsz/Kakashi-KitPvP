@@ -23,7 +23,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class API {
@@ -50,18 +50,18 @@ public class API {
 	public static String naotemtag;
 
 	static {
-		API.Motd = Main.getInstance().getConfig().getString("Motd").replace("&", "§");
-		API.StatusMotd = Main.getInstance().getConfig().getString("StatusMotd").replace("&", "§");
-		API.NomeServer = Main.getInstance().getConfig().getString("NomeServer").replace("&", "§");
-		API.AutoM1 = Main.getInstance().getConfig().getString("MensagemAutomatica1").replace("&", "§");
-		API.AutoM2 = Main.getInstance().getConfig().getString("MensagemAutomatica2").replace("&", "§");
-		API.AutoM3 = Main.getInstance().getConfig().getString("MensagemAutomatica3").replace("&", "§");
-		API.AutoM4 = Main.getInstance().getConfig().getString("MensagemAutomatica4").replace("&", "§");
-		API.AutoM5 = Main.getInstance().getConfig().getString("MensagemAutomatica5").replace("&", "§");
-		API.MSGAplicar1 = Main.getInstance().getConfig().getString("MensagemAplicar1").replace("&", "§");
-		API.MSGYoutuber1 = Main.getInstance().getConfig().getString("MensagemYoutuber1").replace("&", "§");
-		API.MSGYoutuber2 = Main.getInstance().getConfig().getString("MensagemYoutuber2").replace("&", "§");
-		API.MSGYoutuber3 = Main.getInstance().getConfig().getString("MensagemYoutuber3").replace("&", "§");
+		API.Motd = KakashiPvP.getInstance().getConfig().getString("Motd").replace("&", "§");
+		API.StatusMotd = KakashiPvP.getInstance().getConfig().getString("StatusMotd").replace("&", "§");
+		API.NomeServer = KakashiPvP.getInstance().getConfig().getString("NomeServer").replace("&", "§");
+		API.AutoM1 = KakashiPvP.getInstance().getConfig().getString("MensagemAutomatica1").replace("&", "§");
+		API.AutoM2 = KakashiPvP.getInstance().getConfig().getString("MensagemAutomatica2").replace("&", "§");
+		API.AutoM3 = KakashiPvP.getInstance().getConfig().getString("MensagemAutomatica3").replace("&", "§");
+		API.AutoM4 = KakashiPvP.getInstance().getConfig().getString("MensagemAutomatica4").replace("&", "§");
+		API.AutoM5 = KakashiPvP.getInstance().getConfig().getString("MensagemAutomatica5").replace("&", "§");
+		API.MSGAplicar1 = KakashiPvP.getInstance().getConfig().getString("MensagemAplicar1").replace("&", "§");
+		API.MSGYoutuber1 = KakashiPvP.getInstance().getConfig().getString("MensagemYoutuber1").replace("&", "§");
+		API.MSGYoutuber2 = KakashiPvP.getInstance().getConfig().getString("MensagemYoutuber2").replace("&", "§");
+		API.MSGYoutuber3 = KakashiPvP.getInstance().getConfig().getString("MensagemYoutuber3").replace("&", "§");
 		API.preffix = String.valueOf(API.NomeServer) + " §c\u27a1 ";
 		API.jogadoroff = String.valueOf(API.preffix) + "§cJogador offline ou inexistente";
 		API.semperm = String.valueOf(API.preffix) + "§cVoc\u00ea n\u00e3o tem permiss\u00e3o";

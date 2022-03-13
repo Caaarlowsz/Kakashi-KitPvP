@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.Habilidade;
 
 public class Anchor implements Listener {
@@ -27,7 +27,7 @@ public class Anchor implements Listener {
 		if (Habilidade.getAbility(p).equalsIgnoreCase("Anchor")) {
 			p.setVelocity(new Vector());
 			p.playSound(p.getLocation(), Sound.ANVIL_BREAK, 4.0f, 4.0f);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -38,7 +38,7 @@ public class Anchor implements Listener {
 		if (Habilidade.getAbility(a).equalsIgnoreCase("Anchor")) {
 			a.playSound(a.getLocation(), Sound.ANVIL_BREAK, 4.0f, 4.0f);
 			p.setVelocity(new Vector());
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {

@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 
 public class Congelar implements CommandExecutor, Listener {
@@ -31,7 +31,7 @@ public class Congelar implements CommandExecutor, Listener {
 		if (cmd.getName().equalsIgnoreCase("congelar")) {
 			if (p.hasPermission("kitpvp.staff")) {
 				if (args.length == 0) {
-					p.sendMessage(String.valueOf(API.preffix) + "§cSintaxe correta: /congelar (nome)");
+					p.sendMessage(String.valueOf(API.preffix) + "ï¿½cSintaxe correta: /congelar (nome)");
 				} else {
 					final Player t = Bukkit.getPlayer(args[0]);
 					if (t == null) {
@@ -41,22 +41,22 @@ public class Congelar implements CommandExecutor, Listener {
 					if (!Congelar.congelado.contains(t)) {
 						Congelar.congelado.add(t);
 						t.sendMessage(
-								String.valueOf(API.preffix) + "§7Voc\u00ea foi congelado por: §c" + p.getDisplayName());
-						t.sendMessage(String.valueOf(API.preffix) + "§7Espera ele le descongelar ou espere 1 hora");
-						p.sendMessage(String.valueOf(API.preffix) + "§7Voc\u00ea congelou: §c" + t.getDisplayName());
+								String.valueOf(API.preffix) + "ï¿½7Voc\u00ea foi congelado por: ï¿½c" + p.getDisplayName());
+						t.sendMessage(String.valueOf(API.preffix) + "ï¿½7Espera ele le descongelar ou espere 1 hora");
+						p.sendMessage(String.valueOf(API.preffix) + "ï¿½7Voc\u00ea congelou: ï¿½c" + t.getDisplayName());
 					} else {
 						Congelar.congelado.remove(t);
-						t.sendMessage(String.valueOf(API.preffix) + "§7Voc\u00ea foi descongelado por: §a"
+						t.sendMessage(String.valueOf(API.preffix) + "ï¿½7Voc\u00ea foi descongelado por: ï¿½a"
 								+ p.getDisplayName());
-						p.sendMessage(String.valueOf(API.preffix) + "§7Voc\u00ea descongelou: §a" + t.getDisplayName());
+						p.sendMessage(String.valueOf(API.preffix) + "ï¿½7Voc\u00ea descongelou: ï¿½a" + t.getDisplayName());
 					}
 					if (Congelar.congelado.contains(t)) {
-						Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+						Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 							@Override
 							public void run() {
 								Congelar.congelado.remove(t);
 								t.sendMessage(String.valueOf(API.preffix)
-										+ "§7Voc\u00ea foi descongelado depois de uma hora");
+										+ "ï¿½7Voc\u00ea foi descongelado depois de uma hora");
 							}
 						}, 72000L);
 					}
@@ -82,7 +82,7 @@ public class Congelar implements CommandExecutor, Listener {
 		if (Congelar.congelado.contains(p) && e.getMessage().startsWith("/")) {
 			e.setCancelled(true);
 			p.sendMessage(
-					String.valueOf(API.preffix) + "§cVoc\u00ea n\u00e3o pode digitar comando quando estiver congelado");
+					String.valueOf(API.preffix) + "ï¿½cVoc\u00ea n\u00e3o pode digitar comando quando estiver congelado");
 		}
 	}
 
@@ -91,7 +91,7 @@ public class Congelar implements CommandExecutor, Listener {
 		final Player p = e.getPlayer();
 		if (Congelar.congelado.contains(p)) {
 			e.setTo(p.getLocation());
-			p.sendMessage(String.valueOf(API.preffix) + "§cVoc\u00ea est\u00e1 congelado");
+			p.sendMessage(String.valueOf(API.preffix) + "ï¿½cVoc\u00ea est\u00e1 congelado");
 		}
 	}
 }

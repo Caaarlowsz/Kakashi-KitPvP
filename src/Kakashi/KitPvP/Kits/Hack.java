@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffectType;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -30,15 +30,15 @@ public class Hack implements Listener {
 			p.setAllowFlight(true);
 			p.setFlying(true);
 			API.darEfeito(p, PotionEffectType.SPEED, 5, 2);
-			p.sendMessage("§aHACK ATIVADO");
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			p.sendMessage("ï¿½aHACK ATIVADO");
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.setAllowFlight(false);
 					p.setFlying(false);
 				}
 			}, 100L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(API.fimcooldown);

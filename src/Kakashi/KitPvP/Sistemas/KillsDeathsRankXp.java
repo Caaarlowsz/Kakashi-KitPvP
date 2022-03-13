@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 
 public class KillsDeathsRankXp {
 	public static String getRankPequeno(final Player p) {
@@ -174,55 +174,55 @@ public class KillsDeathsRankXp {
 	}
 
 	public static void adicionarKill(final Player p, final int i) {
-		final int Value = Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Matou");
-		Main.getInstance().status.set(String.valueOf(p.getName()) + ".Matou", (Object) (Value + i));
-		Main.getInstance().save();
+		final int Value = KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Matou");
+		KakashiPvP.getInstance().status.set(String.valueOf(p.getName()) + ".Matou", (Object) (Value + i));
+		KakashiPvP.getInstance().save();
 	}
 
 	public static void adicionarDeaths(final Player p, final int i) {
-		final int Value = Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Morreu");
-		Main.getInstance().status.set(String.valueOf(p.getName()) + ".Morreu", (Object) (Value + i));
-		Main.getInstance().save();
+		final int Value = KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Morreu");
+		KakashiPvP.getInstance().status.set(String.valueOf(p.getName()) + ".Morreu", (Object) (Value + i));
+		KakashiPvP.getInstance().save();
 	}
 
 	public static void adicionarXp(final Player p, final int i) {
-		final int Value = Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".XP");
-		Main.getInstance().status.set(String.valueOf(p.getName()) + ".XP", (Object) (Value + i));
-		Main.getInstance().save();
+		final int Value = KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".XP");
+		KakashiPvP.getInstance().status.set(String.valueOf(p.getName()) + ".XP", (Object) (Value + i));
+		KakashiPvP.getInstance().save();
 	}
 
 	public static void removerXp(final Player p, final int i) {
-		final int Value = Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".XP");
-		Main.getInstance().status.set(String.valueOf(p.getName()) + ".XP", (Object) (Value - i));
-		Main.getInstance().save();
+		final int Value = KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".XP");
+		KakashiPvP.getInstance().status.set(String.valueOf(p.getName()) + ".XP", (Object) (Value - i));
+		KakashiPvP.getInstance().save();
 	}
 
 	public static void adicionarCaixa(final Player p, final int i) {
-		final int Value = Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Caixa");
-		Main.getInstance().status.set(String.valueOf(p.getName()) + ".Caixa", (Object) (Value + i));
-		Main.getInstance().save();
+		final int Value = KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Caixa");
+		KakashiPvP.getInstance().status.set(String.valueOf(p.getName()) + ".Caixa", (Object) (Value + i));
+		KakashiPvP.getInstance().save();
 	}
 
 	public static void removerCaixa(final Player p, final int i) {
-		final int Value = Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Caixa");
-		Main.getInstance().status.set(String.valueOf(p.getName()) + ".Caixa", (Object) (Value - i));
-		Main.getInstance().save();
+		final int Value = KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Caixa");
+		KakashiPvP.getInstance().status.set(String.valueOf(p.getName()) + ".Caixa", (Object) (Value - i));
+		KakashiPvP.getInstance().save();
 	}
 
 	public static int getKills(final Player p) {
-		return Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Matou");
+		return KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Matou");
 	}
 
 	public static int getDeaths(final Player p) {
-		return Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Morreu");
+		return KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Morreu");
 	}
 
 	public static int getXp(final Player p) {
-		return Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".XP");
+		return KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".XP");
 	}
 
 	public static int getCaixa(final Player p) {
-		return Main.getInstance().status.getInt(String.valueOf(p.getName()) + ".Caixa");
+		return KakashiPvP.getInstance().status.getInt(String.valueOf(p.getName()) + ".Caixa");
 	}
 
 	public static int getPing(final Player p) {

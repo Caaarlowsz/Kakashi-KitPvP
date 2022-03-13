@@ -18,7 +18,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.Plugin;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -38,7 +38,7 @@ public class Gun implements Listener {
 				&& p.getItemInHand().getType() == Material.WOOD_HOE) {
 			e.setCancelled(true);
 			if (Gun.guntiros.containsKey(p) && Gun.guntiros.get(p) == 2) {
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						Gun.guntiros.remove(p);

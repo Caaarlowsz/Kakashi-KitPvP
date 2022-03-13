@@ -18,7 +18,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -48,15 +48,15 @@ public class C4 implements Listener {
 					C4.bomba.put(p.getName(), item);
 					final ItemStack itemb = new ItemStack(Material.STONE_BUTTON);
 					final ItemMeta itembm = itemb.getItemMeta();
-					itembm.setDisplayName("§7Kit §eC4");
+					itembm.setDisplayName("ï¿½7Kit ï¿½eC4");
 					itemb.setItemMeta(itembm);
 					p.getInventory().setItemInHand(itemb);
 					p.updateInventory();
-					p.sendMessage("§eBomba Armada");
+					p.sendMessage("ï¿½eBomba Armada");
 				} else if (p.getItemInHand().getType() == Material.STONE_BUTTON) {
 					final ItemStack itemb2 = new ItemStack(Material.SLIME_BALL);
 					final ItemMeta itembm2 = itemb2.getItemMeta();
-					itembm2.setDisplayName("§7Kit §eC4");
+					itembm2.setDisplayName("ï¿½7Kit ï¿½eC4");
 					itemb2.setItemMeta(itembm2);
 					p.getInventory().setItemInHand(itemb2);
 					final Item item2 = C4.bomba.get(p.getName());
@@ -65,9 +65,9 @@ public class C4 implements Listener {
 					C4.bomba.remove(p.getName());
 					item2.remove();
 					p.updateInventory();
-					p.sendMessage("§aBomba Explodida");
+					p.sendMessage("ï¿½aBomba Explodida");
 					Cooldown.add(p, 20);
-					Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+					Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -83,14 +83,14 @@ public class C4 implements Listener {
 				}
 				final ItemStack itemb2 = new ItemStack(Material.SLIME_BALL);
 				final ItemMeta itembm2 = itemb2.getItemMeta();
-				itembm2.setDisplayName("§7Kit §eC4");
+				itembm2.setDisplayName("ï¿½7Kit ï¿½eC4");
 				itemb2.setItemMeta(itembm2);
 				p.getInventory().setItemInHand(itemb2);
 				final Item item2 = C4.bomba.get(p.getName());
 				C4.bomba.remove(p.getName());
 				item2.remove();
 				p.updateInventory();
-				p.sendMessage("§cBomba Desarmada");
+				p.sendMessage("ï¿½cBomba Desarmada");
 			}
 		}
 	}

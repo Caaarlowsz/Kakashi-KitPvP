@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -33,10 +33,10 @@ public class Monk implements Listener {
 				final ItemStack ItemMudado = jogadorClicado.getItemInHand();
 				jogadorClicado.setItemInHand(ItemSelecionado);
 				jogadorClicado.getInventory().setItem(random, ItemMudado);
-				jogadorClicado.sendMessage(String.valueOf(API.preffix) + "§cVoc\u00ea foi monkado");
-				p.sendMessage(String.valueOf(API.preffix) + "§cVoc\u00ea monkou: §e" + jogadorClicado.getName());
+				jogadorClicado.sendMessage(String.valueOf(API.preffix) + "ï¿½cVoc\u00ea foi monkado");
+				p.sendMessage(String.valueOf(API.preffix) + "ï¿½cVoc\u00ea monkou: ï¿½e" + jogadorClicado.getName());
 				Cooldown.add(p, 20);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.sendMessage(API.fimcooldown);

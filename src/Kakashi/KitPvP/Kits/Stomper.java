@@ -15,7 +15,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.util.Vector;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -47,7 +47,7 @@ public class Stomper implements Listener {
 				if (!Habilidade.getAbility(st).equalsIgnoreCase("AntiStomper")) {
 					st.damage((double) player.getFallDistance(), (Entity) player);
 				} else {
-					st.sendMessage("§7Voc\u00ea foi protegido da stompada com seu kit");
+					st.sendMessage("ï¿½7Voc\u00ea foi protegido da stompada com seu kit");
 				}
 				final EntityPlayer p = ((CraftPlayer) st).getHandle();
 				if (p.getHealth() - player.getFallDistance() >= 1.0f) {
@@ -100,7 +100,7 @@ public class Stomper implements Listener {
 			final Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.FIREWORK_BLAST2, 2.0f, 2.0f);
 			Cooldown.add(p, 30);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(API.fimcooldown);

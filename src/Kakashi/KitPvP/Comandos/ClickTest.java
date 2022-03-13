@@ -13,7 +13,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 
 public class ClickTest implements CommandExecutor, Listener {
@@ -37,44 +37,44 @@ public class ClickTest implements CommandExecutor, Listener {
 				return true;
 			}
 			ClickTest.fazendoclicktest.add(p.getName());
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.preffix) + "§7ClickTest iniciando em §4§l5§7s");
 				}
 			}, 0L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.preffix) + "§7ClickTest iniciando em §4§l4§7s");
 				}
 			}, 20L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.preffix) + "§7ClickTest iniciando em §4§l3§7s");
 				}
 			}, 40L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.preffix) + "§7ClickTest iniciando em §4§l2§7s");
 				}
 			}, 60L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.preffix) + "§7ClickTest iniciando em §4§l1§7s");
 				}
 			}, 80L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.preffix) + "§7ClickTest iniciado");
 					ClickTest.emclicktest.add(p.getName());
 				}
 			}, 100L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (p.getLevel() >= 200) {

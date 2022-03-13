@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Cooldown;
 import Kakashi.KitPvP.Sistemas.Habilidade;
@@ -60,6 +60,6 @@ public class MorteEventos implements Listener {
 			public void run() {
 				e.getEntity().spigot().respawn();
 			}
-		}.runTask(Main.getPlugin());
+		}.runTask(KakashiPvP.getPlugin());
 	}
 }

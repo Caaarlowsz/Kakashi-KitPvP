@@ -1,5 +1,5 @@
 name: KitPvP
-main: Kakashi.KitPvP.Main
+main: com.github.caaarlowsz.kakashimc.kitpvp.Main
 author: Kakashi
 description: Plugin de KitPvP Para o Servidor ...
 version: 1.0

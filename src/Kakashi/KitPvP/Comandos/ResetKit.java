@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Kits.C4;
 import Kakashi.KitPvP.Kits.FlashBack;
 import Kakashi.KitPvP.Sistemas.API;
@@ -52,7 +52,7 @@ public class ResetKit implements CommandExecutor {
 					final Item item = C4.bomba.get(p.getName());
 					item.remove();
 				}
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						ResetKit.jaresetou.remove(p.getName());

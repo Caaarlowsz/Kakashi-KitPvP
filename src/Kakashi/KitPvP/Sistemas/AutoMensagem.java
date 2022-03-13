@@ -4,11 +4,11 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 
 public class AutoMensagem {
 	public static void start() {
-		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 			String[] msg = { String.valueOf(API.preffix) + API.AutoM1, String.valueOf(API.preffix) + API.AutoM2,
 					String.valueOf(API.preffix) + API.AutoM3, String.valueOf(API.preffix) + API.AutoM4,
 					String.valueOf(API.preffix) + API.AutoM5 };

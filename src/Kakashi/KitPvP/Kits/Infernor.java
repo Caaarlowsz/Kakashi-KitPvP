@@ -25,7 +25,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 import Kakashi.KitPvP.Sistemas.Habilidade;
 
@@ -65,7 +65,7 @@ public class Infernor implements Listener {
 		if (Infernor.lutando.containsKey(p.getName()) && e.getMessage().startsWith("/")) {
 			e.setCancelled(true);
 			p.sendMessage(
-					String.valueOf(API.preffix) + "§cVoc\u00ea n\u00e3o pode utilizar comando quanto estiver lutando");
+					String.valueOf(API.preffix) + "ï¿½cVoc\u00ea n\u00e3o pode utilizar comando quanto estiver lutando");
 		}
 	}
 
@@ -87,7 +87,7 @@ public class Infernor implements Listener {
 				if (Gladiator.lutando.containsKey(p.getName()) || Gladiator.lutando.containsKey(r.getName())
 						|| Infernor.lutando.containsKey(p.getName()) || Infernor.lutando.containsKey(r.getName())) {
 					event.setCancelled(true);
-					p.sendMessage(String.valueOf(API.preffix) + "§7Voce ja esta em combate!");
+					p.sendMessage(String.valueOf(API.preffix) + "ï¿½7Voce ja esta em combate!");
 					return;
 				}
 				final Integer currentID = this.nextID;
@@ -107,7 +107,7 @@ public class Infernor implements Listener {
 								final Block b = loc.clone().add((double) bX, (double) bY, (double) bZ).getBlock();
 								if (!b.isEmpty()) {
 									event.setCancelled(true);
-									p.sendMessage(String.valueOf(API.preffix) + "§cVoce nao pode criar sua arena aqui");
+									p.sendMessage(String.valueOf(API.preffix) + "ï¿½cVoce nao pode criar sua arena aqui");
 									return;
 								}
 								if (bY == 4) {
@@ -133,18 +133,18 @@ public class Infernor implements Listener {
 					API.darEfeito(p, PotionEffectType.INCREASE_DAMAGE, 16, 1);
 					API.darEfeito(r, PotionEffectType.DAMAGE_RESISTANCE, 5, 5);
 					p.sendMessage(String.valueOf(API.preffix)
-							+ "§7Voce desafiou um jogador! Voce tem 5 segundos de invencibilidade!");
+							+ "ï¿½7Voce desafiou um jogador! Voce tem 5 segundos de invencibilidade!");
 					p.sendMessage(String.valueOf(API.preffix)
-							+ "§7Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
+							+ "ï¿½7Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
 					r.sendMessage(String.valueOf(API.preffix)
-							+ "§7Voce foi desafiado! Voce tem 5 segundos de invencibilidade!");
+							+ "ï¿½7Voce foi desafiado! Voce tem 5 segundos de invencibilidade!");
 					r.sendMessage(String.valueOf(API.preffix)
-							+ "§7 Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
+							+ "ï¿½7 Caso nao tenha nenhum vencedor depois de 4 minutos, voce voltara ao seu local de origem!");
 					Infernor.lutando.put(p.getName(), r.getName());
 					Infernor.lutando.put(r.getName(), p.getName());
 					Infernor.gladinfernor.add(p.getName());
 					Infernor.gladinfernor.add(r.getName());
-					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -157,7 +157,7 @@ public class Infernor implements Listener {
 									}
 								}
 							}, 2400L);
-					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KakashiPvP.getInstance(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -174,9 +174,9 @@ public class Infernor implements Listener {
 										Infernor.this.oldl.remove(p.getName());
 										Infernor.this.oldl.remove(r.getName());
 										p.sendMessage(String.valueOf(API.preffix)
-												+ "§7N\u00e3o houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
+												+ "ï¿½7N\u00e3o houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
 										r.sendMessage(String.valueOf(API.preffix)
-												+ "§7N\u00e3o houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
+												+ "ï¿½7N\u00e3o houve nenhum vencedor, voce foi teleportado para o seu lugar de origem!");
 										r.setFireTicks(0);
 										p.setFireTicks(0);
 										final Location loc = Infernor.this.localizacao.get(p);
@@ -227,7 +227,7 @@ public class Infernor implements Listener {
 				&& Infernor.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getClickedBlock().setType(Material.BEDROCK);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Infernor.lutando.containsKey(e.getPlayer().getName())) {
@@ -245,7 +245,7 @@ public class Infernor implements Listener {
 				&& Infernor.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getBlock().setType(Material.BEDROCK);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (e.getPlayer().getGameMode() != GameMode.CREATIVE
@@ -265,7 +265,7 @@ public class Infernor implements Listener {
 				&& Infernor.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getClickedBlock().setType(Material.BEDROCK);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (Infernor.lutando.containsKey(e.getPlayer().getName())) {
@@ -283,7 +283,7 @@ public class Infernor implements Listener {
 				&& Infernor.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getBlock().setType(Material.BEDROCK);
-			Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (e.getPlayer().getGameMode() != GameMode.CREATIVE
@@ -307,7 +307,7 @@ public class Infernor implements Listener {
 			Infernor.gladinfernor.remove(t.getName());
 			final Location old = this.oldl.get(t.getName());
 			t.teleport(old);
-			t.sendMessage(String.valueOf(API.preffix) + "§cO jogador " + p.getName() + " deslogou");
+			t.sendMessage(String.valueOf(API.preffix) + "ï¿½cO jogador " + p.getName() + " deslogou");
 			Bukkit.getScheduler().cancelTask(this.id1);
 			Bukkit.getScheduler().cancelTask(this.id2);
 			t.setFireTicks(0);
@@ -349,7 +349,7 @@ public class Infernor implements Listener {
 			final Player k = Bukkit.getServer().getPlayer((String) Infernor.lutando.get(p.getName()));
 			final Location old = this.oldl.get(p.getName());
 			k.teleport(old);
-			k.sendMessage(String.valueOf(API.preffix) + "§7Voce ganhou a batalha contra " + p.getName());
+			k.sendMessage(String.valueOf(API.preffix) + "ï¿½7Voce ganhou a batalha contra " + p.getName());
 			Bukkit.getScheduler().cancelTask(this.id1);
 			Bukkit.getScheduler().cancelTask(this.id2);
 			k.setFireTicks(0);

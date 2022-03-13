@@ -4,7 +4,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.NametagAPI;
 
 public class TagsAPI {
@@ -14,6 +14,6 @@ public class TagsAPI {
 				p.setDisplayName(String.valueOf(tag) + p.getName());
 				NametagAPI.setSuffix(p.getName(), tag);
 			}
-		}.runTaskAsynchronously((Plugin) Main.getInstance());
+		}.runTaskAsynchronously((Plugin) KakashiPvP.getInstance());
 	}
 }

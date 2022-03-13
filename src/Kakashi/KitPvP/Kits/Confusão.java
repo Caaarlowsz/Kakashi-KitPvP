@@ -1,21 +1,6 @@
 package Kakashi.KitPvP.Kits;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-
-import Kakashi.KitPvP.Main;
-import Kakashi.KitPvP.Sistemas.API;
-import Kakashi.KitPvP.Sistemas.Cooldown;
-import Kakashi.KitPvP.Sistemas.Habilidade;
 
 public class Confus\u00e3o implements Listener {
 	@EventHandler

@@ -8,7 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import Kakashi.KitPvP.Main;
+import com.github.caaarlowsz.kakashimc.kitpvp.KakashiPvP;
 import Kakashi.KitPvP.Sistemas.API;
 
 public class ClearChat implements CommandExecutor {
@@ -36,7 +36,7 @@ public class ClearChat implements CommandExecutor {
 				Bukkit.broadcast("§b" + p.getDisplayName() + " §7Limpou o chat", "kitpvp.clearchat");
 				p.sendMessage(String.valueOf(API.preffix) + "§aVoc\u00ea limpou o chat §2✔");
 				ClearChat.emcc.add(p.getName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(KakashiPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						ClearChat.emcc.remove(p.getName());
